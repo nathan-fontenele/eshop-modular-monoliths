@@ -2,9 +2,9 @@
 
 namespace Shared.DDD
 {
-    public class IDomainEvent : INotification
+    public interface IDomainEvent : INotification
     {
-        Guid EventId => Guid.NewGuid(); 
+        Guid EventId => Guid.NewGuid();
         public DateTime OccurredOn => DateTime.UtcNow;
         public string EventType => GetType().AssemblyQualifiedName!;
     }
