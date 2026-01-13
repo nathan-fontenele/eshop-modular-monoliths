@@ -22,7 +22,7 @@ namespace Catalog
             
             services.AddDbContext<CatalogDbContext>((sp, options) =>
             {
-                options.AddInterceptors(sp.GetService<ISaveChangesInterceptor>());
+                options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
                 options.UseNpgsql(connectionString);
             });
             services.AddScoped<IDataSeeder, CatalogDataSeeder>();
